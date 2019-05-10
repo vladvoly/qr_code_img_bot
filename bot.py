@@ -24,7 +24,7 @@ def send_welcome(message):
 
 	if message.text == '/help':
 		out_start = "OK. I will help you.\n"
-		out_start += "1) - Enter the text or URL - * Hello World! *\n"
+		out_start += "1) - Enter the text or URL - *Hello World! *\n"
 		out_start += "2) - Choose the degree of resistance of QR-Code to damages - *Low/Medium/Quality/High*\n"
 		out_start += "3) - Choose a QR-Code color - *Red/Green/Blue/Black/Other*\n"
 		out_start += "4) - Get your QR-Code\n"
