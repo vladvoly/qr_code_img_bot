@@ -19,7 +19,7 @@ def out_qr(in_t,in_c,in_q,mci):
 def send_welcome(message):
 	markup = types.ReplyKeyboardRemove()
 	if message.text == '/start':
-		out_start = "Hey. I am Byte-Good-Bot.\nI will help you create a QR-code\n"
+		out_start = "Hey. I am QR-Code Bot.\nI will help you create a QR-code\n"
 		bot.send_message(message.chat.id, out_start, reply_markup=markup)
 
 	if message.text == '/help':
