@@ -50,8 +50,4 @@ Well done. QR-code is made. Now you can send it to a friend for scanning or save
 
 ---
 
-You can support me.
-* Bitcoin - ```15SK9zNqoDJfpdtrqiLBm1uESx52gLoqhs```  
-* LiqPay - [donation](https://www.liqpay.ua/en/checkout/card/donationvlad)  
-
 ### If you have an ideas how to expand the functions of this bot or make it better, write to me.
