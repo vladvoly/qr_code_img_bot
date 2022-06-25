@@ -17,7 +17,7 @@ def out_qr(in_t,in_q,mci):
 
 def out_barcode(in_t1,mci):
 	markup = types.ReplyKeyboardRemove()
-	out_url1 = 'https://barcode.tec-it.com/barcode.ashx?data='+in_t1+'&code=Code128&translate-esc=on'
+	out_url1 = 'https://barcode.tec-it.com/barcode.ashx?data='+in_t1+'&code=Code128&translate-esc=true&dpi=300&qunit=Mm&quiet=5'
 	markup = types.ReplyKeyboardRemove()
 	bot.send_photo(mci, out_url1, reply_markup=markup, caption='Your Code-128')
 
