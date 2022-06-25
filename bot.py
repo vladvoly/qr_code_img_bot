@@ -25,7 +25,7 @@ def send_welcome(message):
 	if message.text == '/help':
 		out_start = "OK. I will help you.\n"
 		out_start += "1) - Enter the text or URL - *Hello World! *\n"
-		out_start += "2) - Choose the degree of resistance of QR-Code to damages - *Low/Medium/High*\n"
+		out_start += "2) - Choose the degree of resistance of QR-Code to damages"
 		out_start += "3) - Get your QR-Code\n"
 		bot.send_message(message.chat.id, out_start, reply_markup=markup, parse_mode="Markdown")
 
@@ -33,7 +33,7 @@ def send_welcome(message):
 @bot.message_handler(content_types = ['text'])
 def send_text(message):
 	
-	ms_quality = ('Low', 'Medium', 'Quality', 'High')
+	ms_quality = ('Medium', 'Quality', 'High')
 	global in_text
 	global in_quality
 
@@ -47,11 +47,10 @@ def send_text(message):
 	else :
 		in_text = message.text
 		markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True)
-		itembtn1 = types.KeyboardButton('Low')
 		itembtn2 = types.KeyboardButton('Medium')
 		itembtn3 = types.KeyboardButton('Quality')
 		itembtn4 = types.KeyboardButton('High')
-		markup.add(itembtn1, itembtn2, itembtn3,itembtn4)
+		markup.add(itembtn2, itembtn3,itembtn4)
 		bot.send_message(message.chat.id, "Choose the degree of resistance of QR-Code to damages", reply_markup=markup)
 
 bot.polling(timeout = 60)
