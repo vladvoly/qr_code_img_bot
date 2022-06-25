@@ -8,11 +8,11 @@ TOKEN = os.environ['MY_BOT_TOKEN']
 bot = telebot.TeleBot(TOKEN)
 
 #Picture output function
-def out_qr(in_t,in_q):
+def out_qr(in_t,in_q,mci):
 	markup = types.ReplyKeyboardRemove()
 	out_url = 'https://qrcode.tec-it.com/API/QRCode?data='+in_t+'&errorcorrection='+in_q+'&backcolor=%23ffffff&quietzone=5&size=Large'
 	markup = types.ReplyKeyboardRemove()
-	bot.send_photo(message.chat.id, out_url, reply_markup=markup, caption='Your QR-Code')
+	bot.send_photo(mci, out_url, reply_markup=markup, caption='Your QR-Code')
 
 #Commands for calling /start and /help
 @bot.message_handler(commands=['start', 'help'])
@@ -41,7 +41,7 @@ def send_text(message):
 	if message.text in ms_quality:
 		in_quality = message.text
 		in_quality = in_quality[0]	
-		out_qr(in_text,in_quality)
+		out_qr(in_text,in_quality,message.chat.id)
 
 	#1 - came plain text...
 	else :
