@@ -41,7 +41,7 @@ def send_text(message):
 	if message.text in ms_quality:
 		in_quality = message.text
 		in_quality = in_quality[0]	
-		out_qr(in_text,in_color,in_quality,message.chat.id)
+		out_qr(in_text,in_quality,message.chat.id)
 
 	#1 - came plain text...
 	else :
