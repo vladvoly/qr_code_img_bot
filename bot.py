@@ -72,7 +72,7 @@ def send_text(message):
 				itembtn4 = types.KeyboardButton('High')
 				markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
 				bot.send_message(message.chat.id, "Choose the degree of resistance of QR-Code to damages", reply_markup=markup)
-		elif message.text in ms_quality:
+		if message.text in ms_quality:
 			in_quality = message.text
 			in_quality = in_quality[0]	
 			out_qr(in_text,in_quality)
