@@ -63,7 +63,7 @@ def send_text(message):
 		if message.text in ms_c_format:
 			in_c_format = message.text
 			if in_c_format == 'Code-128':
-			out_bar(in_text)
+				out_bar(in_text)
 			if in_c_format == 'QR-Code':
 				markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True)
 				itembtn1 = types.KeyboardButton('Low')
