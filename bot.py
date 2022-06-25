@@ -21,7 +21,7 @@ def out_bar(in_t):
 	markup = types.ReplyKeyboardRemove()
 	out_barcode = 'https://barcode.tec-it.com/barcode.ashx?data='+in_t+'&code=Code128&translate-esc=on'
 	markup = types.ReplyKeyboardRemove()
-	bot.send_photo(message.chat.id, out_url, reply_markup=markup, caption='Your Code-128')
+	bot.send_photo(message.chat.id, out_barcode, reply_markup=markup, caption='Your Code-128')
 	
 #Commands for calling /start and /help
 @bot.message_handler(commands=['start', 'help'])
