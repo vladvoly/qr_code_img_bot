@@ -34,8 +34,7 @@ def send_welcome(message):
 	if message.text == '/help':
 		out_start = "OK. I will help you.\n"
 		out_start += "1) - Enter the text or URL - *Hello World! *\n"
-		out_start += "2) - Choose the degree of resistance of QR-Code to damages - *Low/Medium/High*\n"
-		out_start += "3) - Get your QR-Code\n"
+		out_start += "2) - Get your Code\n"
 		bot.send_message(message.chat.id, out_start, reply_markup=markup, parse_mode="Markdown")
 
 #Commands to process the received data from the telegram
