@@ -60,7 +60,7 @@ def send_text(message):
 		bot.send_message(message.chat.id, "Select the type of code (*QR-Code* or *Code-128*).", reply_markup=markup,  parse_mode="Markdown")
 		flag = 1
 	
-	else:
+	if flag == 1:
 		if message.text in ms_c_format:
 			in_c_format = message.text
 			if in_c_format == 'Code-128':
