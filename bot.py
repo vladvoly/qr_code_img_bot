@@ -7,13 +7,22 @@ from telebot import types
 TOKEN = os.environ['MY_BOT_TOKEN']
 bot = telebot.TeleBot(TOKEN)
 
+
+
+
 #Picture output function
-def out_qr(in_t,in_q,mci):
+def out_qr(in_t,in_q):
 	markup = types.ReplyKeyboardRemove()
 	out_url = 'https://qrcode.tec-it.com/API/QRCode?data='+in_t+'&errorcorrection='+in_q+'&backcolor=%23ffffff&quietzone=5&size=Large'
 	markup = types.ReplyKeyboardRemove()
-	bot.send_photo(mci, out_url, reply_markup=markup, caption='Your QR-Code')
+	bot.send_photo(message.chat.id, out_url, reply_markup=markup, caption='Your QR-Code')
 
+def out_bar(in_t):
+	markup = types.ReplyKeyboardRemove()
+	out_barcode = 'https://barcode.tec-it.com/barcode.ashx?data='+in_t+'&code=Code128&translate-esc=on'
+	markup = types.ReplyKeyboardRemove()
+	bot.send_photo(message.chat.id, out_url, reply_markup=markup, caption='Your Code-128')
+	
 #Commands for calling /start and /help
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -34,11 +43,17 @@ def send_welcome(message):
 def send_text(message):
 	
 	ms_quality = ('Low', 'Medium', 'Quality', 'High')
+	ms_c_format = ('QR-Code', 'Code-128')
 	global in_text
 	global in_quality
+	global in_c_format
 
 	#2 - got the value of stability QR-code to damage
-	if message.text in ms_quality:
+	if message.text in ms_c_format:
+		in_c_format = message.text
+		out_bar(in_text)
+	
+	else message.text in ms_quality:
 		in_quality = message.text
 		in_quality = in_quality[0]	
 		out_qr(in_text,in_quality,message.chat.id)
@@ -46,12 +61,10 @@ def send_text(message):
 	#1 - came plain text...
 	else :
 		in_text = message.text
-		markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True)
-		itembtn1 = types.KeyboardButton('Low')
-		itembtn2 = types.KeyboardButton('Medium')
-		itembtn3 = types.KeyboardButton('Quality')
-		itembtn4 = types.KeyboardButton('High')
-		markup.add(itembtn1, itembtn2, itembtn3,itembtn4)
-		bot.send_message(message.chat.id, "Choose the degree of resistance of QR-Code to damages", reply_markup=markup)
+		markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+		itembtn1 = types.KeyboardButton('QR-Code')
+		itembtn2 = types.KeyboardButton('Code-128')
+		markup.add(itembtn1, itembtn2)
+		bot.send_message(message.chat.id, "Select the type of code (*QR-Code* or *Code-128*).", reply_markup=markup)
 
 bot.polling(timeout = 60)
