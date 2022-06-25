@@ -49,6 +49,7 @@ def send_text(message):
 	global in_quality
 	global in_c_format
 	global flag
+	flag = 0
 
 	if flag == 0:
 		in_text = message.text
