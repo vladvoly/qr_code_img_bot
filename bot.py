@@ -52,13 +52,13 @@ def send_text(message):
 		in_c_format = message.text
 		if in_c_format == 'Code-128':
 			out_bar(in_text)
-		else :
+		if in_c_format == 'QR-Code':
 			markup = types.ReplyKeyboardMarkup(row_width=4, resize_keyboard=True)
 			itembtn1 = types.KeyboardButton('Low')
 			itembtn2 = types.KeyboardButton('Medium')
 			itembtn3 = types.KeyboardButton('Quality')
 			itembtn4 = types.KeyboardButton('High')
-			markup.add(itembtn1, itembtn2, itembtn3,itembtn4)
+			markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
 			bot.send_message(message.chat.id, "Choose the degree of resistance of QR-Code to damages", reply_markup=markup)
 	
 	else : message.text in ms_quality:
