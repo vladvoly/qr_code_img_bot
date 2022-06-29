@@ -2,6 +2,7 @@
 import os
 import telebot
 from telebot import types
+import urllib.parse
 flag = 0
 
 #Request to the system to receive a variable token
@@ -51,6 +52,7 @@ def send_text(message):
 
 	if flag == 0:
 		in_text = message.text
+		in_text = urllib.parse.quote_plus(in_text)
 		markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
 		itembtn1 = types.KeyboardButton('QR-Code')
 		itembtn2 = types.KeyboardButton('Code-128')
